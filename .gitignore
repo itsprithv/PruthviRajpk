@@ -1,0 +1,13 @@
+node_modules
+dist
+.env
+.DS_Store
+*.log
+
+# Local PPT / Python tooling (not part of the website)
+*.py
+__pycache__/
+ppt_assets/
+extracted_content.json
+full_slide_analysis.json
+ppt_slides_data.json

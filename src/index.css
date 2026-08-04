@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-page: #FFFFFF;
+  --color-card: #FFFFFF;
+  --color-subtle: #F3F4F6;
+  --color-border: #E5E7EB;
+  --color-text: #111827;
+  --color-text-muted: #6B7280;
+  --cursor-x: 50%;
+  --cursor-y: 50%;
+}
+
+.dark {
+  --color-page: #111827;
+  --color-card: #1F2937;
+  --color-subtle: #374151;
+  --color-border: #374151;
+  --color-text: #F9FAFB;
+  --color-text-muted: #9CA3AF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-page text-ink font-sans antialiased;
+  color: var(--color-text);
+}
+
+::selection {
+  @apply bg-primary/20 text-ink;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-subtle);
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/40 rounded-full;
+}
+
+@layer components {
+  .accent-text {
+    @apply text-primary;
+  }
+
+  .card {
+    @apply rounded-xl border border-border bg-card shadow-card;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out hover:shadow-card-hover hover:border-primary/30 hover:-translate-y-1;
+  }
+
+  .interactive-card {
+    @apply cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-medium text-white bg-primary hover:bg-primary-dark hover:shadow-glow transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-medium border border-border text-ink bg-card hover:bg-subtle hover:border-primary/30 transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium text-primary hover:bg-primary/10 transition-colors duration-200;
+  }
+
+  .badge {
+    @apply text-xs font-medium px-3 py-1 rounded-full bg-subtle text-ink border border-border;
+  }
+
+  .section-label {
+    @apply text-sm font-medium text-secondary uppercase tracking-wider;
+  }
+
+  .page-title {
+    @apply font-bold text-ink text-3xl sm:text-4xl lg:text-5xl tracking-tight;
+  }
+
+  .icon-box {
+    @apply w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0;
+  }
+
+  /* Cursor-reactive border glow on cards */
+  .cursor-glow-card {
+    position: relative;
+    isolation: isolate;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .cursor-glow-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+      220px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(37, 99, 235, 0.55),
+      rgba(14, 165, 233, 0.25) 45%,
+      transparent 70%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .cursor-glow-card:hover::before {
+    opacity: 1;
+  }
+  .cursor-glow-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      180px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(37, 99, 235, 0.07),
+      transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+  .cursor-glow-card:hover::after {
+    opacity: 1;
+  }
+  .cursor-glow-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+  }
+}
+
+/* Page-level cursor spotlight */
+.cursor-spotlight {
+  background: radial-gradient(
+    500px circle at var(--cursor-x) var(--cursor-y),
+    rgba(37, 99, 235, 0.07),
+  rgba(14, 165, 233, 0.04) 40%,
+    transparent 70%
+  );
+}
+
+.dark .cursor-spotlight {
+  background: radial-gradient(
+    500px circle at var(--cursor-x) var(--cursor-y),
+    rgba(37, 99, 235, 0.12),
+    rgba(14, 165, 233, 0.06) 40%,
+    transparent 70%
+  );
+}
