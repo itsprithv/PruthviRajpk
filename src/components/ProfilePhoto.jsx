@@ -1,4 +1,5 @@
 import { site } from '../data/site'
+import { assetUrl } from '../utils/assetUrl'
 
 const sizeMap = {
   sm: 'w-36 h-36',
@@ -10,6 +11,7 @@ export default function ProfilePhoto({ className = '', size = 'lg' }) {
   if (!site.photo) return null
 
   const dim = sizeMap[size] || sizeMap.lg
+  const photoSrc = assetUrl(site.photo)
 
   return (
     <div className={`relative ${dim} ${className}`}>
@@ -27,7 +29,7 @@ export default function ProfilePhoto({ className = '', size = 'lg' }) {
 
       <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-card shadow-card-hover ring-2 ring-primary/25">
         <img
-          src={site.photo}
+          src={photoSrc}
           alt={`${site.name} — Cloud Engineer`}
           className="w-full h-full object-cover object-[center_18%] scale-[1.12]"
         />

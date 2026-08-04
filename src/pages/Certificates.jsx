@@ -3,6 +3,7 @@ import CertificateCard from '../components/CertificateCard'
 import PageHeader from '../components/PageHeader'
 import { IconExternal } from '../components/Icons'
 import { handleCardPointer } from '../utils/pointerGlow'
+import { assetUrl } from '../utils/assetUrl'
 
 export default function Certificates() {
   const creds = certificates.filter((c) => c.type === 'Certificate')
@@ -53,7 +54,7 @@ export default function Certificates() {
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">
             <a
-              href={site.resumeUrl}
+              href={assetUrl(site.resumeUrl)}
               target="_blank"
               rel="noreferrer"
               className="btn-outline gap-1.5 text-sm py-2 px-4"
@@ -61,7 +62,7 @@ export default function Certificates() {
               View PDF
               <IconExternal />
             </a>
-            <a href={site.resumeUrl} download className="btn-primary text-sm py-2 px-4">
+            <a href={assetUrl(site.resumeUrl)} download className="btn-primary text-sm py-2 px-4">
               Download
             </a>
           </div>

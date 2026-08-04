@@ -3,6 +3,7 @@ import { site } from '../data/site'
 import PageHeader from '../components/PageHeader'
 import { IconMail, IconMap, IconGithub, IconLinkedin, IconExternal } from '../components/Icons'
 import { handleCardPointer } from '../utils/pointerGlow'
+import { assetUrl } from '../utils/assetUrl'
 
 export default function Contact() {
   const [copied, setCopied] = useState(false)
@@ -76,7 +77,7 @@ export default function Contact() {
             </a>
             {site.resumeUrl && (
               <a
-                href={site.resumeUrl}
+                href={assetUrl(site.resumeUrl)}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-primary gap-2 text-sm py-2 px-4"

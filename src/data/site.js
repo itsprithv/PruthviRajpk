@@ -10,8 +10,8 @@ export const site = {
   location: 'India',
   github: 'https://github.com/itsprithv',
   linkedin: 'https://www.linkedin.com/in/pruthviraj-p-karjagi-46108427a/',
-  resumeUrl: '/resume/resume.pdf',
-  photo: '/profile/photo.jpeg',
+  resumeUrl: 'resume/resume.pdf',
+  photo: 'profile/photo.jpeg',
   siteUrl: 'https://itsprithv.github.io/PruthviRajpk',
 }
 
@@ -19,25 +19,25 @@ export const certificates = [
   {
     title: 'Amazon EKS Knowledge',
     issuer: 'AWS / Amazon',
-    file: '/certificates/amazon-eks-knowledge.pdf',
+    file: 'certificates/amazon-eks-knowledge.pdf',
     type: 'Certificate',
   },
   {
     title: 'AWS Cloud Essentials',
     issuer: 'AWS',
-    file: '/certificates/aws-cloud-essentials.pdf',
+    file: 'certificates/aws-cloud-essentials.pdf',
     type: 'Certificate',
   },
   {
     title: 'Kubernetes',
     issuer: 'Cloud & Container Platform',
-    file: '/certificates/kubernetes.pdf',
+    file: 'certificates/kubernetes.pdf',
     type: 'Certificate',
   },
   {
     title: 'Marklist',
     issuer: 'Academic record',
-    file: '/certificates/marklist.pdf',
+    file: 'certificates/marklist.pdf',
     type: 'Academic',
   },
 ]

@@ -4,6 +4,7 @@ import ProfilePhoto from '../components/ProfilePhoto'
 import PageHeader from '../components/PageHeader'
 import { IconExternal } from '../components/Icons'
 import { handleCardPointer } from '../utils/pointerGlow'
+import { assetUrl } from '../utils/assetUrl'
 
 export default function About() {
   return (
@@ -24,10 +25,10 @@ export default function About() {
           </p>
           {site.resumeUrl && (
             <div className="pt-2 flex flex-wrap gap-3">
-              <a href={site.resumeUrl} target="_blank" rel="noreferrer" className="btn-outline text-sm py-2 px-4 gap-1.5">
+              <a href={assetUrl(site.resumeUrl)} target="_blank" rel="noreferrer" className="btn-outline text-sm py-2 px-4 gap-1.5">
                 View resume <IconExternal />
               </a>
-              <a href={site.resumeUrl} download className="btn-primary text-sm py-2 px-4">
+              <a href={assetUrl(site.resumeUrl)} download className="btn-primary text-sm py-2 px-4">
                 Download resume
               </a>
               <Link to="/certificates" className="btn-outline text-sm py-2 px-4">

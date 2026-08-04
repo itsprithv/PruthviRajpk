@@ -1,8 +1,11 @@
 import { IconAward, IconExternal } from './Icons'
 import { handleCardPointer } from '../utils/pointerGlow'
+import { assetUrl } from '../utils/assetUrl'
 
 export default function CertificateCard({ certificate }) {
   const { title, issuer, file, type = 'Certificate' } = certificate
+
+  const fileUrl = assetUrl(file)
 
   return (
     <article
@@ -22,7 +25,7 @@ export default function CertificateCard({ certificate }) {
 
       <div className="mt-5 flex flex-wrap gap-2">
         <a
-          href={file}
+          href={fileUrl}
           target="_blank"
           rel="noreferrer"
           className="btn-outline text-sm py-2 px-4 gap-1.5"
@@ -30,7 +33,7 @@ export default function CertificateCard({ certificate }) {
           View PDF
           <IconExternal />
         </a>
-        <a href={file} download className="btn-primary text-sm py-2 px-4">
+        <a href={fileUrl} download className="btn-primary text-sm py-2 px-4">
           Download
         </a>
       </div>

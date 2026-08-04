@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { site, roles, projects } from '../data/site'
+import { assetUrl } from '../utils/assetUrl'
 import ProjectCard from '../components/ProjectCard'
 import ProfilePhoto from '../components/ProfilePhoto'
 import { IconCloud } from '../components/Icons'
@@ -37,7 +38,7 @@ export default function Home() {
                 View projects
               </Link>
               {site.resumeUrl && (
-                <a href={site.resumeUrl} target="_blank" rel="noreferrer" className="btn-outline">
+                <a href={assetUrl(site.resumeUrl)} target="_blank" rel="noreferrer" className="btn-outline">
                   View resume
                 </a>
               )}
