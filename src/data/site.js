@@ -91,11 +91,29 @@ export const projects = [
   {
     title: 'CI/CD Pipeline on AWS',
     description:
-      'Automated build, test, and deploy pipeline using GitHub Actions and AWS, cutting manual deploy steps to zero.',
-    tags: ['AWS', 'GitHub Actions', 'CI/CD'],
+      'End-to-end CI/CD pipeline: GitHub Actions builds and tests a Dockerized Node.js app, pushes to Amazon ECR, and deploys to ECS behind ALB with RDS and S3. Includes local Docker Compose setup for free development.',
+    tags: ['AWS', 'GitHub Actions', 'Docker', 'ECS', 'ECR', 'CI/CD'],
     gradient: 'bg-[linear-gradient(135deg,#6366f1,#ec4899)]',
-    screenshot: null,
-    github: '',
+    screenshot: 'projects/cicd/architecture.png',
+    gallery: [
+      {
+        src: 'projects/cicd/app-running.png',
+        caption: 'App running locally — API health check on localhost:3000',
+      },
+      {
+        src: 'projects/cicd/code-github-actions.svg',
+        caption: 'GitHub Actions workflow — test, build, and deploy to AWS ECS',
+      },
+      {
+        src: 'projects/cicd/code-dockerfile.svg',
+        caption: 'Dockerfile — container image for ECR and ECS',
+      },
+      {
+        src: 'projects/cicd/code-server.svg',
+        caption: 'Node.js server — runs inside ECS container',
+      },
+    ],
+    github: 'https://github.com/itsprithv/cicd-pipeline-aws',
     demo: '',
     featured: true,
   },

@@ -1,9 +1,11 @@
 import { IconFolder, IconExternal } from './Icons'
 import { handleCardPointer } from '../utils/pointerGlow'
+import { assetUrl } from '../utils/assetUrl'
 
 export default function ProjectCard({ project }) {
-  const { title, description, tags, screenshot, github, demo } = project
+  const { title, description, tags, screenshot, gallery, github, demo } = project
   const hasLinks = github || demo
+  const imageSrc = screenshot ? assetUrl(screenshot) : null
 
   return (
     <article
@@ -11,9 +13,9 @@ export default function ProjectCard({ project }) {
       className="card card-hover cursor-glow-card interactive-card overflow-hidden animate-fadeIn group"
     >
       <div className="relative bg-subtle border-b border-border">
-        {screenshot ? (
+        {imageSrc ? (
           <img
-            src={screenshot}
+            src={imageSrc}
             alt={`${title} screenshot`}
             className="w-full aspect-video object-cover"
           />
@@ -35,6 +37,27 @@ export default function ProjectCard({ project }) {
             <li key={t} className="badge">{t}</li>
           ))}
         </ul>
+
+        {gallery?.length > 0 && (
+          <div className="mt-5 space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">Project highlights</p>
+            <div className="grid gap-3">
+              {gallery.map((item) => (
+                <figure key={item.src} className="overflow-hidden rounded-lg border border-border bg-subtle">
+                  <img
+                    src={assetUrl(item.src)}
+                    alt={item.caption || `${title} highlight`}
+                    className="w-full object-cover"
+                    loading="lazy"
+                  />
+                  {item.caption && (
+                    <figcaption className="px-3 py-2 text-xs text-ink-muted">{item.caption}</figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </div>
+        )}
 
         {hasLinks && (
           <div className="mt-4 flex flex-wrap gap-3">
