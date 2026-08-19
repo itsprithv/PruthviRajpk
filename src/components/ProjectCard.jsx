@@ -18,21 +18,6 @@ export default function ProjectCard({ project }) {
       onMouseMove={handleCardPointer}
       className="card card-hover cursor-glow-card interactive-card overflow-hidden animate-fadeIn group"
     >
-      {slides.length > 0 ? (
-        <div className="border-b border-border bg-subtle p-3">
-          <ImageSlider items={slides} title={title} />
-        </div>
-      ) : (
-        <div className="relative bg-subtle border-b border-border">
-          <div className="w-full aspect-video flex flex-col items-center justify-center gap-3 bg-primary/5">
-            <div className="icon-box w-12 h-12">
-              <IconFolder className="w-6 h-6" />
-            </div>
-            <span className="text-xs text-ink-muted font-medium">Project preview</span>
-          </div>
-        </div>
-      )}
-
       <div className="p-5">
         <h3 className="text-lg font-semibold text-ink">{title}</h3>
         <p className="mt-2 text-sm text-ink-muted leading-relaxed">{description}</p>
@@ -41,6 +26,19 @@ export default function ProjectCard({ project }) {
             <li key={t} className="badge">{t}</li>
           ))}
         </ul>
+
+        {slides.length > 0 ? (
+          <div className="mt-5">
+            <ImageSlider items={slides} title={title} />
+          </div>
+        ) : (
+          <div className="mt-5 w-full aspect-video flex flex-col items-center justify-center gap-3 rounded-lg border border-border bg-primary/5">
+            <div className="icon-box w-12 h-12">
+              <IconFolder className="w-6 h-6" />
+            </div>
+            <span className="text-xs text-ink-muted font-medium">Project preview</span>
+          </div>
+        )}
 
         {hasLinks && (
           <div className="mt-4 flex flex-wrap gap-3">
