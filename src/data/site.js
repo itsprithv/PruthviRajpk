@@ -97,6 +97,10 @@ export const projects = [
     screenshot: 'projects/cicd/architecture.png',
     gallery: [
       {
+        src: 'projects/cicd/architecture-workflow.png',
+        caption: 'AWS CI/CD workflow — GitHub Actions → ECR → ECS → ALB → Route 53',
+      },
+      {
         src: 'projects/cicd/app-running.png',
         caption: 'App running locally — API health check on localhost:3000',
       },
