@@ -101,15 +101,15 @@ export const projects = [
         caption: 'App running locally — API health check on localhost:3000',
       },
       {
-        src: 'projects/cicd/code-github-actions.svg',
+        src: 'projects/cicd/code-github-actions.png',
         caption: 'GitHub Actions workflow — test, build, and deploy to AWS ECS',
       },
       {
-        src: 'projects/cicd/code-dockerfile.svg',
+        src: 'projects/cicd/code-dockerfile.png',
         caption: 'Dockerfile — container image for ECR and ECS',
       },
       {
-        src: 'projects/cicd/code-server.svg',
+        src: 'projects/cicd/code-server.png',
         caption: 'Node.js server — runs inside ECS container',
       },
     ],
