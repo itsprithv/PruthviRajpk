@@ -97,16 +97,8 @@ export const projects = [
     screenshot: null,
     gallery: [
       {
-        src: 'projects/cicd/architecture.png',
-        caption: 'AWS architecture — ECS, ECR, RDS, S3, and ALB inside VPC',
-      },
-      {
         src: 'projects/cicd/architecture-workflow.png',
         caption: 'AWS CI/CD workflow — GitHub Actions → ECR → ECS → ALB → Route 53',
-      },
-      {
-        src: 'projects/cicd/app-running.png',
-        caption: 'App running locally — API health check on localhost:3000',
       },
       {
         src: 'projects/cicd/code-github-actions.png',
