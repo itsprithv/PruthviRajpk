@@ -94,8 +94,12 @@ export const projects = [
       'End-to-end CI/CD pipeline: GitHub Actions builds and tests a Dockerized Node.js app, pushes to Amazon ECR, and deploys to ECS behind ALB with RDS and S3. Includes local Docker Compose setup for free development.',
     tags: ['AWS', 'GitHub Actions', 'Docker', 'ECS', 'ECR', 'CI/CD'],
     gradient: 'bg-[linear-gradient(135deg,#6366f1,#ec4899)]',
-    screenshot: 'projects/cicd/architecture.png',
+    screenshot: null,
     gallery: [
+      {
+        src: 'projects/cicd/architecture.png',
+        caption: 'AWS architecture — ECS, ECR, RDS, S3, and ALB inside VPC',
+      },
       {
         src: 'projects/cicd/architecture-workflow.png',
         caption: 'AWS CI/CD workflow — GitHub Actions → ECR → ECS → ALB → Route 53',
