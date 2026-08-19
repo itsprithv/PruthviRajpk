@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#1e1e1e"/>
+  <rect width="960" height="36" fill="#2d2d2d"/>
+  <circle cx="20" cy="18" r="6" fill="#ff5f57"/>
+  <circle cx="40" cy="18" r="6" fill="#febc2e"/>
+  <circle cx="60" cy="18" r="6" fill="#28c840"/>
+  <text x="90" y="24" fill="#cccccc" font-family="Consolas, monospace" font-size="13">.github/workflows/ci-cd.yml</text>
+  <text x="24" y="72" fill="#569cd6" font-family="Consolas, monospace" font-size="14">name:</text><text x="88" y="72" fill="#ce9178" font-family="Consolas, monospace" font-size="14"> CI/CD Pipeline</text>
+  <text x="24" y="98" fill="#569cd6" font-family="Consolas, monospace" font-size="14">jobs:</text>
+  <text x="40" y="124" fill="#9cdcfe" font-family="Consolas, monospace" font-size="14">test:</text>
+  <text x="72" y="150" fill="#569cd6" font-family="Consolas, monospace" font-size="14">runs-on:</text><text x="168" y="150" fill="#ce9178" font-family="Consolas, monospace" font-size="14"> ubuntu-latest</text>
+  <text x="72" y="176" fill="#569cd6" font-family="Consolas, monospace" font-size="14">steps:</text>
+  <text x="96" y="202" fill="#dcdcaa" font-family="Consolas, monospace" font-size="14">- run: npm test</text>
+  <text x="40" y="240" fill="#9cdcfe" font-family="Consolas, monospace" font-size="14">build:</text>
+  <text x="72" y="266" fill="#dcdcaa" font-family="Consolas, monospace" font-size="14">- run: docker build -t cicd-demo-app ./app</text>
+  <text x="40" y="304" fill="#9cdcfe" font-family="Consolas, monospace" font-size="14">deploy:</text>
+  <text x="72" y="330" fill="#569cd6" font-family="Consolas, monospace" font-size="14">if:</text><text x="104" y="330" fill="#ce9178" font-family="Consolas, monospace" font-size="14"> github.ref == 'refs/heads/prod'</text>
+  <text x="72" y="356" fill="#dcdcaa" font-family="Consolas, monospace" font-size="14">- run: docker push $ECR_REGISTRY/$ECR_REPOSITORY</text>
+  <text x="72" y="382" fill="#dcdcaa" font-family="Consolas, monospace" font-size="14">- run: aws ecs update-service --force-new-deployment</text>
+  <rect x="0" y="500" width="960" height="40" fill="#252526"/>
+  <text x="24" y="525" fill="#858585" font-family="Segoe UI, sans-serif" font-size="12">GitHub Actions  test ’ build ’ deploy to AWS ECS</text>
+</svg>
